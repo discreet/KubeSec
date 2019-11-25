@@ -1,0 +1,21 @@
+# WIP manifest for deploying a daemonset to run a website
+apiVersion: apps/v1beta2
+kind: DaemonSet
+metadata:
+  name: httpd
+  labels:
+    app: httpd
+spec:
+  selector:
+    matchLabels:
+      name: httpd
+  template:
+    metadata:
+      labels:
+        name: httpd
+    spec:
+      nodeSelector:
+        node-role.kubernetes.io/worker: "true"
+      containers:
+      - name: httpd
+        image: httpd

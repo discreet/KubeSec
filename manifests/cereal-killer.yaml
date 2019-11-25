@@ -1,0 +1,11 @@
+# Pod manifest allowing the container to access the host filesystem
+kind: Pod
+apiVersion: v1
+metadata:
+  name: cereal-killer
+spec:
+  containers:
+    - name: cereal-killer
+      image: <image name>
+      command: ["sh", "-c"]
+      args: ["while true; do nom nom nom; done;"]

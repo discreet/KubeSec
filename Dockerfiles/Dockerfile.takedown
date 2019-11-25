@@ -1,0 +1,9 @@
+# Dockerfile to run script to continuously kill a process
+FROM entos:centos7
+
+RUN yum clean all && \
+    yum update -y
+
+WORKDIR /tmp
+
+COPY plague.sh .

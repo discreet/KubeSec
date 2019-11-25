@@ -1,0 +1,24 @@
+# WIP manifest for deploying a daemonset to continuously kill a process
+apiVersion: apps/v1beta2
+kind: DaemonSet
+metadata:
+  name: the-plague
+  labels:
+    app: takedown
+spec:
+  selector:
+    matchLabels:
+      name: the-plague
+  template:
+    metadata:
+      labels:
+        name: the-plague
+    spec:
+      nodeSelector:
+        node-role.kubernetes.io/worker: "true"
+      hostPID: true
+      containers:
+        - name: the-plague
+          image: takedown:v0.1.1
+          command: ["sh", "-c"]
+          args: ["./plague.sh httpd"]

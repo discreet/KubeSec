@@ -1,0 +1,12 @@
+# Pod manifest with access to the host networking
+kind: Pod
+apiVersion: v1
+metadata:
+  name: zero-cool
+spec:
+  hostNetwork: true
+  containers:
+    - name: zero-cool
+      image: discr33t-centos:v0.1.4
+      command: ["sh", "-c"]
+      args: ["while true; do nerd; done;"]

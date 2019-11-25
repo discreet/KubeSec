@@ -1,0 +1,12 @@
+# Pod manifest allowing the container to access the host PIDs
+kind: Pod
+apiVersion: v1
+metadata:
+  name: acid-burn
+spec:
+  hostPID: true
+  containers:
+    - name: acid-burn
+      image: <image name>
+      command: ["sh", "-c"]
+      args: ["while true; do sizzle; done;"]

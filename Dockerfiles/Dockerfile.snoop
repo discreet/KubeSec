@@ -1,0 +1,6 @@
+# Dockerfile to build container with simple networking tools
+FROM centos:centos7
+
+RUN yum clean all && \
+    yum update -y && \
+    yum install netcat tcpdump nmap iproute net-tools traceroute bind-utils -y
